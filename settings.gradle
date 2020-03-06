@@ -1,0 +1,1 @@
+include ':app', ':jt808_sdk'
