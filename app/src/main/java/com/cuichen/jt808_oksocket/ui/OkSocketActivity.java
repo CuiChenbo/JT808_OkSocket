@@ -26,6 +26,13 @@ import com.cuichen.jt808_oksocket.adapter.LogAdapter;
 import com.cuichen.jt808_oksocket.bean.LogBean;
 import com.cuichen.jt808_oksocket.utils.L;
 import com.cuichen.jt808_oksocket.utils.TU;
+import com.cuichen.jt808_sdk.oksocket.client.sdk.client.ConnectionInfo;
+import com.cuichen.jt808_sdk.oksocket.client.sdk.client.OkSocketOptions;
+import com.cuichen.jt808_sdk.oksocket.client.sdk.client.action.SocketActionAdapter;
+import com.cuichen.jt808_sdk.oksocket.client.sdk.client.connection.NoneReconnect;
+import com.cuichen.jt808_sdk.oksocket.core.iocore.interfaces.IPulseSendable;
+import com.cuichen.jt808_sdk.oksocket.core.iocore.interfaces.ISendable;
+import com.cuichen.jt808_sdk.oksocket.core.pojo.OriginalData;
 import com.cuichen.jt808_sdk.sdk.SocketConfig;
 import com.cuichen.jt808_sdk.sdk.SocketManagerTest;
 import com.cuichen.jt808_sdk.sdk.exceptions.SocketManagerException;
@@ -36,13 +43,6 @@ import com.cuichen.jt808_sdk.sdk.jt808coding.JTT808Coding;
 import com.cuichen.jt808_sdk.sdk.jt808utils.ByteUtil;
 import com.cuichen.jt808_sdk.sdk.jt808utils.HexUtil;
 import com.cuichen.jt808_sdk.sdk.jt808utils.HexUtils;
-import com.xuhao.didi.core.iocore.interfaces.IPulseSendable;
-import com.xuhao.didi.core.iocore.interfaces.ISendable;
-import com.xuhao.didi.core.pojo.OriginalData;
-import com.xuhao.didi.socket.client.sdk.client.ConnectionInfo;
-import com.xuhao.didi.socket.client.sdk.client.OkSocketOptions;
-import com.xuhao.didi.socket.client.sdk.client.action.SocketActionAdapter;
-import com.xuhao.didi.socket.client.sdk.client.connection.NoneReconnect;
 
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
@@ -97,7 +97,7 @@ public class OkSocketActivity extends AppCompatActivity {
 
                 @Override
                 public void onSocketReadResponse(ConnectionInfo info, String action, OriginalData data) {
-                    byte[] body = ByteUtil.byteMergerAll(data.getHeadBytes() ,data.getBodyBytes()) ;
+                    byte[] body = ByteUtil.byteMergerAll(data.getBodyBytes()) ;
                     L.c("Read(原数据):" + HexUtils.formatHexString(body));
                     logPrint("Read(原数据):" + HexUtils.formatHexString(body));
                     byte[] bytes ;
