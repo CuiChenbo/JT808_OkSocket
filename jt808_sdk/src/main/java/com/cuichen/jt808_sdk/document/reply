@@ -1,0 +1,10 @@
+typedef NS_ENUM(NSInteger,MaxusSocketCommonRespResult)
+{
+    MaxusSocketCommonRespResult_Succ, 0 ///< 成功/确认
+    MaxusSocketCommonRespResult_Fail, 1 ///< 失败
+    MaxusSocketCommonRespResult_MsgInvalid, 2 ///< 消息有误
+    MaxusSocketCommonRespResult_NotSupport, 3 ///< 不支持
+    MaxusSocketCommonRespResult_AlarmProcessConfirm, 4 ///< 报警处理确认
+    MaxusSocketCommonRespResult_AuthCodeInvalid, 5 ///< 鉴权码失效
+    MaxusSocketCommonRespResult_DeviceDisabled,  6 ///< 设备已停用
+};
